@@ -178,8 +178,6 @@ async function handleUnlock() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
-    alert("✅ Оплата прошла успешно! PDF-отчёт загружается.");
   } catch (error) {
     console.error("Ошибка при разблокировке:", error);
     alert("Произошла ошибка при обработке платежа");
