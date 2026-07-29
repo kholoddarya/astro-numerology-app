@@ -1,0 +1,30 @@
+{
+  "name": "astro-numerology-app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^1.0.1",
+    "@prisma/client": "^6.19.3",
+    "astronomy-engine": "^2.1.19",
+    "nuxt": "^4.5.1",
+    "pdf-lib": "^1.17.1",
+    "pdfkit": "^0.19.1",
+    "pinia": "^4.0.2",
+    "vue": "^3.5.40",
+    "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@nuxt/fonts": "^0.11.0",
+    "@nuxt/icon": "^1.10.3",
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "@types/pdfkit": "^0.17.6",
+    "prisma": "^6.19.3"
+  }
+}

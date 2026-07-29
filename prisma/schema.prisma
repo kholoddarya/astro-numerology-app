@@ -1,0 +1,49 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" // Для продакшена поменяем на "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  name          String?   
+  
+  // 152-ФЗ compliance
+  consent152fz  Boolean   @default(false)
+  consentDate   DateTime?
+
+  createdAt     DateTime  @default(now())
+  
+  reports       ChartReport[]
+}
+
+model ChartReport {
+  id            String    @id @default(uuid())
+  userId        String?   // null, если расчет сделал гость без регистрации
+  
+  // Входные данные
+  birthDate     String    // Храним как строку "YYYY-MM-DD" для простоты в SQLite
+  birthTime     String?   // "12:00" или null
+  latitude      Float?
+  longitude     Float?
+  locationName  String?   // "Москва, Россия"
+
+  // Результаты расчета (JSON хранится как текст в SQLite, Prisma сам его распарсит в объект)
+  calculatedData String   // В коде будем делать JSON.stringify() и JSON.parse()
+  
+  // Монетизация
+  isPremiumUnlocked Boolean @default(false)
+  unlockedAt        DateTime?
+
+  createdAt     DateTime  @default(now())
+  
+  user          User?     @relation(fields: [userId], references: [id])
+  
+  @@index([userId])
+}
