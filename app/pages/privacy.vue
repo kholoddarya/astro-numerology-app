@@ -176,14 +176,52 @@
           </p>
         </section>
 
+        <!-- ▼▼▼ НОВЫЙ РАЗДЕЛ: СВЕДЕНИЯ ОБ ОПЕРАТОРЕ (для ЮKassa) ▼▼▼ -->
+        <section
+          class="bg-night-800/40 rounded-xl p-6 border border-brass-500/20"
+        >
+          <h2 class="font-display text-xl font-bold text-brass-400 mb-4">
+            10. Информация об операторе
+          </h2>
+          <p class="text-starlight/80 font-body text-sm leading-relaxed mb-4">
+            Оператором Сервиса и исполнителем по договорам, заключаемым через
+            данный сайт, является:
+          </p>
+          <dl
+            class="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-starlight/80 font-body text-sm"
+          >
+            <dt class="text-starlight/50">Статус</dt>
+            <dd>Самозанятый (плательщик налога на профессиональный доход)</dd>
+
+            <dt class="text-starlight/50">ФИО</dt>
+            <dd>Холод Дарья Александрона</dd>
+
+            <dt class="text-starlight/50">ИНН</dt>
+            <dd class="font-mono tracking-wider">366411262909</dd>
+
+            <dt class="text-starlight/50">E-mail</dt>
+            <dd>
+              <a
+                href="mailto:support@example.com"
+                class="text-brass-400 hover:text-brass-300 underline underline-offset-4"
+                >support@example.com</a
+              >
+            </dd>
+          </dl>
+          <p class="text-starlight/60 font-body text-xs mt-4 leading-relaxed">
+            Приём платежей осуществляется через платёжный сервис ЮKassa (АО
+            «Т-Банк»). По всем вопросам оплаты и возврата средств обращайтесь по
+            указанному адресу электронной почты.
+          </p>
+        </section>
         <section>
           <h2 class="font-display text-xl font-bold text-brass-400 mb-3">
-            10. Контакты
+            11. Контакты
           </h2>
           <p class="text-starlight/80 font-body text-sm leading-relaxed">
             По всем вопросам, связанным с обработкой персональных данных,
             обращайтесь через форму обратной связи на сайте или на адрес
-            электронной почты, указанный в разделе «Контакты» футера сайта.
+            электронной почты, указанный в разделе «Информация об операторе».
           </p>
         </section>
       </div>
