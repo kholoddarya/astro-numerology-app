@@ -177,9 +177,7 @@
         </section>
 
         <!-- ▼▼▼ НОВЫЙ РАЗДЕЛ: СВЕДЕНИЯ ОБ ОПЕРАТОРЕ (для ЮKassa) ▼▼▼ -->
-        <section
-          class="bg-night-800/40 rounded-xl p-6 border border-brass-500/20"
-        >
+        <section>
           <h2 class="font-display text-xl font-bold text-brass-400 mb-4">
             10. Информация об операторе
           </h2>
@@ -202,9 +200,9 @@
             <dt class="text-starlight/50">E-mail</dt>
             <dd>
               <a
-                href="mailto:support@example.com"
+                href="mailto:hlldddddd@yandex.ru"
                 class="text-brass-400 hover:text-brass-300 underline underline-offset-4"
-                >support@example.com</a
+                >hlldddddd@yandex.ru</a
               >
             </dd>
           </dl>
