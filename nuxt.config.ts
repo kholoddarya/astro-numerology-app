@@ -24,8 +24,6 @@ export default defineNuxtConfig({
     ],
   },
 
-  // SSR обязателен: программатик-SEO страницы (знаки, числа, совместимости)
-  // должны отдавать готовый HTML при первом ответе сервера.
   ssr: true,
 
   app: {
@@ -52,7 +50,12 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ["/sitemap.xml", "/robots.txt"],
+      ignore: ["/api/**"],
     },
+  },
+
+  routeRules: {
+    "/api/**": { cors: true },
   },
 
   typescript: { strict: true },
