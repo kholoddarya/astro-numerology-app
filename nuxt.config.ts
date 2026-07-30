@@ -53,7 +53,7 @@ export default defineNuxtConfig({
         { property: "og:locale", content: "ru_RU" },
         { name: "yandex-verification", content: "PUT_YOUR_CODE_HERE" },
       ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      link: [{ rel: "icon", type: "image/x-icon", href: "/logo.png" }],
     },
   },
 
