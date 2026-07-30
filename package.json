@@ -10,7 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "@pinia/nuxt": "^1.0.1",
+    "@prisma/adapter-neon": "^7.9.1",
     "@prisma/client": "^6.19.3",
     "astronomy-engine": "^2.1.19",
     "node-geocoder": "^4.4.1",
