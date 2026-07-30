@@ -34,16 +34,33 @@
         />
       </div>
 
-      <!-- Дополнительное поле времени (опционально) -->
       <div>
         <label class="block text-sm font-medium text-slate-300 mb-1.5">
-          Время рождения (если известно)
+          Время рождения
+          <span class="text-slate-400 text-xs">(если известно)</span>
         </label>
         <input
           v-model="birthTime"
           type="time"
           class="w-full px-4 py-2.5 bg-slate-800/80 border border-purple-500/30 rounded-xl text-slate-100 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/30 transition-all duration-200 [color-scheme:dark]"
         />
+      </div>
+
+      <!-- НОВОЕ ПОЛЕ: Место рождения -->
+      <div>
+        <label class="block text-sm font-medium text-slate-300 mb-1.5">
+          Место рождения <span class="text-purple-400 text-xs">*</span>
+        </label>
+        <input
+          v-model="birthPlace"
+          type="text"
+          placeholder="Например: Москва, Россия"
+          class="w-full px-4 py-2.5 bg-slate-800/80 border border-purple-500/30 rounded-xl text-slate-100 placeholder-slate-400 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/30 transition-all duration-200"
+          required
+        />
+        <p class="text-xs text-slate-400 mt-1.5">
+          Необходимо для точного расчёта Асцендента и сетки домов
+        </p>
       </div>
 
       <button
@@ -96,14 +113,16 @@ const store = useUserReportStore();
 const name = ref("Дарья");
 const birthDate = ref("1999-02-12");
 const birthTime = ref("12:00");
+const birthPlace = ref("Москва"); // Новое состояние
 
 async function handleSubmit() {
-  if (!birthDate.value) return;
+  if (!birthDate.value || !birthPlace.value) return;
 
   await store.fetchFullReport({
     name: name.value,
     birthDate: birthDate.value,
-    birthTime: birthTime.value,
+    birthTime: birthTime.value || "12:00",
+    birthPlace: birthPlace.value, // Передаем место рождения
   });
 }
 </script>

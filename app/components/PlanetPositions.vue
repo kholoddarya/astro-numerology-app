@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="planets.length"
-    class="bg-night-900/60 backdrop-blur-sm rounded-2xl border border-night-700/50 overflow-hidden"
+    class="bg-night-900/60 backdrop-blur-sm rounded-2xl border border-night-700/50 overflow-hidden animate-fade-in-up"
   >
     <!-- Заголовок -->
     <div
@@ -15,16 +15,17 @@
       <span
         class="font-mono text-xs text-starlight/60 bg-night-900/80 px-3 py-1.5 rounded-full border border-night-600/50"
       >
-        ASC: {{ ascendantDegree }}°
+        ASC: ~{{ Math.round(ascendantDegree) }}°
       </span>
     </div>
 
     <!-- Список планет со скроллом -->
     <div class="max-h-[320px] overflow-y-auto custom-scrollbar p-3 space-y-2">
       <div
-        v-for="planet in planets"
+        v-for="(planet, index) in planets"
         :key="planet.name"
-        class="group flex items-center justify-between p-3.5 bg-night-800/30 hover:bg-night-800/60 rounded-xl border border-night-700/30 hover:border-brass-500/30 transition-all duration-200"
+        class="group flex items-center justify-between p-3.5 bg-night-800/30 hover:bg-night-800/60 rounded-xl border border-night-700/30 hover:border-brass-500/30 transition-all duration-200 animate-item-fade-in"
+        :style="{ animationDelay: `${150 + index * 60}ms` }"
       >
         <div class="flex items-center gap-3.5">
           <div
@@ -86,6 +87,40 @@ function getPlanetGlyph(name?: string) {
 </script>
 
 <style scoped>
+/* 1. Анимация появления всего блока (всплытие) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. Анимация появления элементов списка (сдвиг слева + прозрачность) */
+@keyframes itemFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-item-fade-in {
+  animation: itemFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0; /* Скрыто до начала анимации */
+}
+
+/* 3. Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
