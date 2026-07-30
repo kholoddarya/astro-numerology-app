@@ -3,7 +3,13 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-01",
   devtools: { enabled: true },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/fonts", "@nuxt/icon", "@pinia/nuxt"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/fonts",
+    "@nuxt/icon",
+    "@pinia/nuxt",
+    "@nuxtjs/sitemap",
+  ],
 
   css: ["~/assets/css/main.css"],
 
@@ -25,6 +31,10 @@ export default defineNuxtConfig({
   },
 
   ssr: true,
+
+  site: {
+    url: "https://astra-astrology.ru",
+  },
 
   app: {
     head: {
@@ -49,7 +59,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ["/sitemap.xml", "/robots.txt"],
+      routes: ["/robots.txt"],
       ignore: ["/api/**"],
     },
   },
